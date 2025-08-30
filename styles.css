@@ -1,0 +1,533 @@
+/* =========================================================
+   WINWIN Agreement — styles.css
+   Pure CSS. Demonstrates the Box Model (margin/padding/border),
+   consistent spacing, accessible focus, and responsive layout.
+   ========================================================= */
+
+/* ------------------------------
+   0) Base Reset & Foundations
+   ------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Include padding & border in element size */
+}
+
+:root {
+  /* Color system */
+  --bg: #0f1320;
+  --surface: #141a2a;
+  --surface-2: #1b2236;
+  --card: #19223a;
+  --text: #e9eef8;
+  --muted: #b9c2d6;
+  --accent: #6ee7f3;   /* cyan */
+  --accent-2: #9d7bff; /* violet */
+  --border: #2b3654;
+  --ok: #41d19e;
+  --warn: #ffb454;
+
+  /* Spacing scale */
+  --gap-1: 0.5rem;
+  --gap-2: 1rem;
+  --gap-3: 1.5rem;
+  --gap-4: 2rem;
+  --gap-5: 2.5rem;
+  --gap-6: 3rem;
+
+  /* Radius & shadows */
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+  /* Typography */
+  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  --leading: 1.6;
+  --fs-300: 0.9rem;
+  --fs-400: 1rem;
+  --fs-500: 1.125rem;
+  --fs-600: clamp(1.25rem, 1.2vw + 1rem, 1.5rem);
+  --fs-700: clamp(1.6rem, 2vw + 1rem, 2rem);
+  --fs-800: clamp(1.9rem, 2.5vw + 1rem, 2.6rem);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(1200px 800px at 20% 0%, #1a2140, var(--bg));
+  color: var(--text);
+  font-family: var(--font-base);
+  font-size: var(--fs-400);
+  line-height: var(--leading);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High-contrast (forced colors) support */
+@media (forced-colors: active) {
+  .btn,
+  .card,
+  .panel,
+  .hero,
+  .callout,
+  .box {
+    border: 1px solid CanvasText;
+  }
+}
+
+/* ------------------------------
+   1) Utilities & Layout Primitives
+   ------------------------------ */
+
+.container {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+  padding-inline: var(--gap-2);
+}
+
+.section {
+  padding-block: var(--gap-6);
+  border-top: 1px solid var(--border);
+}
+
+.section__header {
+  margin-bottom: var(--gap-3);
+}
+
+.section__subhead {
+  margin-top: var(--gap-1);
+  color: var(--muted);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 0.5rem 0.75rem;
+  background: var(--accent-2);
+  color: #0b0b0c;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+/* ------------------------------
+   2) Header & Navigation
+   ------------------------------ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(20, 26, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-2);
+  padding-block: 0.75rem;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  font-size: var(--fs-600);
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__list a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem; /* padding (inside spacing) */
+  border: 1px solid transparent; /* border (visible boundary) */
+  border-radius: 8px;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.nav__list a:hover,
+.nav__list a:focus-visible {
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.nav__list--small a {
+  padding: 0.25rem 0.5rem;
+  font-size: var(--fs-300);
+  color: var(--muted);
+}
+
+/* ------------------------------
+   3) Hero (Overview)
+   ------------------------------ */
+
+.hero {
+  margin-top: var(--gap-4);                 /* margin (outside spacing) */
+  padding-block: var(--gap-6);              /* padding (inside spacing) */
+  padding-inline: clamp(1rem, 2vw, 2rem);
+  background:
+    radial-gradient(800px 400px at 70% -20%, rgba(157,123,255,0.15), transparent 60%),
+    linear-gradient(180deg, rgba(110,231,243,0.06), rgba(110,231,243,0));
+  border: 1px solid var(--border);          /* border (visual edge) */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hero h1 {
+  margin: 0 0 var(--gap-1);
+  font-size: var(--fs-800);
+}
+
+.hero p {
+  margin: 0 0 var(--gap-3);
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-2);
+}
+
+/* ------------------------------
+   4) Buttons
+   ------------------------------ */
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  padding: 0.6rem 1rem;                 /* padding demo */
+  margin: 0;                            /* margin controlled by parent layouts */
+  border: 1px solid var(--border);      /* border demo */
+  border-radius: 999px;
+  transition: transform 0.06s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  will-change: transform;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0b0b0c;
+  border-color: transparent;
+}
+
+.btn--ghost {
+  background: transparent;
+}
+
+.btn--secondary {
+  background: var(--surface-2);
+}
+
+/* ------------------------------
+   5) WINWIN Canvas & Alignment
+   ------------------------------ */
+
+.grid {
+  display: grid;
+  gap: var(--gap-3);
+}
+
+.grid--cards {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--gap-3);           /* padding: content breathing room */
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: var(--gap-2);
+}
+
+.card h3 {
+  margin: 0 0 0.25rem;
+  font-size: var(--fs-600);
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.card .bullets {
+  margin: 0;
+  padding-left: 1.25rem;           /* demonstrate list indentation via padding */
+  color: var(--muted);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.win-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap-3);
+}
+
+.panel {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--gap-3);
+  box-shadow: var(--shadow);
+}
+
+.panel h3 {
+  margin: 0 0 var(--gap-2);
+  font-size: var(--fs-600);
+}
+
+.check {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.check li::before {
+  content: "✔";
+  color: var(--ok);
+  margin-right: 0.5rem;
+}
+
+/* Callout & acronym helper */
+.callout {
+  margin-top: var(--gap-3);
+  padding: var(--gap-3);
+  background: linear-gradient(180deg, rgba(65,209,158,0.12), rgba(65,209,158,0.04));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.acronym {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 1rem;
+  margin: 0;
+}
+.acronym div {
+  display: contents;
+}
+.acronym dt {
+  font-weight: 800;
+  color: var(--accent);
+}
+.acronym dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ------------------------------
+   6) Box Model Demo
+   ------------------------------ */
+
+.boxrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0; /* each .box uses its own margin to show outer spacing */
+}
+
+.box {
+  background: rgba(110, 231, 243, 0.08);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  color: var(--text);
+  min-width: 240px;
+  flex: 1 1 260px;
+}
+.box strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.box--a {
+  padding: 1rem;         /* inner space */
+  margin: 0.5rem;        /* outer space */
+  border-width: 2px;     /* boundary thickness */
+}
+
+.box--b {
+  padding: 2rem;
+  margin: 1rem;
+  border-width: 4px;
+  background: rgba(157, 123, 255, 0.12);
+}
+
+.box--c {
+  padding: 0.5rem 1.5rem;
+  margin: 1.5rem;
+  border-width: 6px;
+  background: rgba(65, 209, 158, 0.10);
+}
+
+.note {
+  color: var(--muted);
+  margin-top: var(--gap-2);
+}
+
+/* ------------------------------
+   7) Typography Showcases
+   ------------------------------ */
+
+.typography h1,
+.typography h2,
+.typography h3,
+.typography h4,
+.typography h5,
+.typography h6 {
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+}
+
+.typography h1 { font-size: var(--fs-800); }
+.typography h2 { font-size: var(--fs-700); }
+.typography h3 { font-size: var(--fs-600); }
+
+.typography p,
+.typography ul,
+.typography blockquote {
+  margin: 0 0 var(--gap-2);
+}
+
+.typography a {
+  color: var(--accent);
+  text-underline-offset: 2px;
+}
+
+.typography blockquote {
+  border-left: 4px solid var(--accent-2);
+  padding-left: 1rem;                  /* padding: inner spacing for quote */
+  color: var(--muted);
+  background: rgba(157, 123, 255, 0.08);
+  border-radius: 6px;
+}
+
+/* ------------------------------
+   8) Footer
+   ------------------------------ */
+
+.site-footer {
+  margin-top: var(--gap-6);
+  padding-block: var(--gap-3);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-2);
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ------------------------------
+   9) Responsive Adjustments
+   ------------------------------ */
+
+@media (max-width: 900px) {
+  .brand {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .win-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap-1);
+  }
+  .nav__list {
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav__list a {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+  .hero {
+    padding-block: var(--gap-4);
+  }
+}
+
+/* ------------------------------
+   10) Optional: Print Styles
+   ------------------------------ */
+
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+  .site-header,
+  .site-footer,
+  .btn-row,
+  .skip-link {
+    display: none !important;
+  }
+  .hero,
+  .card,
+  .panel,
+  .callout,
+  .box {
+    border: 1px solid #000 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+}
