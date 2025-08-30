@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WINWIN Agreement — CSS Box Model Demo</title>
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">WIN<span class="accent">WIN</span> Agreement</div>
+      <nav aria-label="Primary">
+        <ul class="nav__list">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#canvas">WINWIN Canvas</a></li>
+          <li><a href="#alignment">Your Win / My Win</a></li>
+          <li><a href="#cards">Scopes & Measures</a></li>
+          <li><a href="#box-model">Box Model</a></li>
+          <li><a href="#typography">Typography</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- OVERVIEW / HERO -->
+    <section id="overview" class="hero container">
+      <h1>Apply the <span class="accent">WINWIN</span> Scenario to Your Project</h1>
+      <p>
+        This page turns the WINWIN framework into a practical agreement canvas. It captures
+        outcomes, information architecture, constraints, workflow, iterations, and next steps—while
+        also demonstrating the CSS Box Model with clear margins, padding, and borders.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="#canvas">Open the Canvas</a>
+        <a class="btn btn--ghost" href="#box-model">See Box Model</a>
+      </div>
+    </section>
+
+    <!-- WINWIN CANVAS -->
+    <section id="canvas" class="container section">
+      <header class="section__header">
+        <h2>WINWIN Agreement Canvas</h2>
+        <p class="section__subhead">Use each tile to align expectations and shared value.</p>
+      </header>
+
+      <div class="grid grid--cards">
+        <!-- W: Well-defined outcomes -->
+        <article class="card">
+          <h3>W — Well‑defined Outcomes</h3>
+          <p>Define success in observable, testable terms.</p>
+          <ul class="bullets">
+            <li>Primary objective(s) and scope boundaries</li>
+            <li>Deliverables (e.g., report, dashboard, SOP)</li>
+            <li>Completion criteria & acceptance tests</li>
+          </ul>
+        </article>
+
+        <!-- I: Information architecture -->
+        <article class="card">
+          <h3>I — Information Architecture</h3>
+          <p>What data, content, and structure do we need?</p>
+          <ul class="bullets">
+            <li>Inputs (forms, datasets, templates)</li>
+            <li>Storage & versioning approach</li>
+            <li>Outputs (views, exports, briefs)</li>
+          </ul>
+        </article>
+
+        <!-- N: Negotiated constraints -->
+        <article class="card">
+          <h3>N — Negotiated Constraints</h3>
+          <p>Make constraints explicit to reduce risk.</p>
+          <ul class="bullets">
+            <li>Timeframe & milestones</li>
+            <li>Capacity, tools, compliance</li>
+            <li>Assumptions & dependencies</li>
+          </ul>
+        </article>
+
+        <!-- W: Workflow clarity -->
+        <article class="card">
+          <h3>W — Workflow Clarity</h3>
+          <p>Agree on how work flows end‑to‑end.</p>
+          <ul class="bullets">
+            <li>Roles & responsibilities (RACI)</li>
+            <li>Handoffs & review gates</li>
+            <li>Change control process</li>
+          </ul>
+        </article>
+
+        <!-- I: Iterative improvements -->
+        <article class="card">
+          <h3>I — Iterative Improvements</h3>
+          <p>Plan feedback loops and adaptation.</p>
+          <ul class="bullets">
+            <li>Cadence (weekly/bi-weekly)</li>
+            <li>Feedback channels & DoD</li>
+            <li>Retrospectives & learnings</li>
+          </ul>
+        </article>
+
+        <!-- N: Next steps & ownership -->
+        <article class="card">
+          <h3>N — Next Steps & Ownership</h3>
+          <p>Close with concrete actions and owners.</p>
+          <ul class="bullets">
+            <li>Immediate actions & dates</li>
+            <li>Named owners & backups</li>
+            <li>Communication plan</li>
+          </ul>
+        </article>
+      </div>
+
+      <aside class="callout" aria-labelledby="acronym-title">
+        <h4 id="acronym-title">WINWIN Acronym (quick reference)</h4>
+        <dl class="acronym">
+          <div><dt>W</dt><dd>Well‑defined outcomes</dd></div>
+          <div><dt>I</dt><dd>Information architecture</dd></div>
+          <div><dt>N</dt><dd>Negotiated constraints</dd></div>
+          <div><dt>W</dt><dd>Workflow clarity</dd></div>
+          <div><dt>I</dt><dd>Iterative improvements</dd></div>
+          <div><dt>N</dt><dd>Next steps & ownership</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <!-- ALIGNMENT (YOUR WIN / MY WIN) -->
+    <section id="alignment" class="container section">
+      <header class="section__header">
+        <h2>Your Win / My Win</h2>
+        <p class="section__subhead">Surface shared value explicitly to prevent misalignment.</p>
+      </header>
+
+      <div class="win-grid">
+        <article class="panel">
+          <h3>Your Win</h3>
+          <ul class="check">
+            <li>Clarity on deliverables and timelines</li>
+            <li>Measurable impact & traceability</li>
+            <li>Usability for real-world decisions</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h3>My Win</h3>
+          <ul class="check">
+            <li>Maintainable, readable CSS/HTML</li>
+            <li>Semantic structure & accessibility</li>
+            <li>Reusable components & patterns</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- SCOPES & MEASURES (optional extras for PMER-style clarity) -->
+    <section id="cards" class="container section">
+      <header class="section__header">
+        <h2>Scopes & Measures</h2>
+        <p class="section__subhead">Define scope, indicators, and evidence upfront.</p>
+      </header>
+
+      <div class="grid grid--cards">
+        <article class="card">
+          <h3>Scope</h3>
+          <p>Boundaries of what is in/out for this cycle.</p>
+          <ul class="bullets">
+            <li>In-scope features & artifacts</li>
+            <li>Out-of-scope items</li>
+            <li>Risks & mitigations</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Indicators</h3>
+          <p>How we’ll know we’re succeeding.</p>
+          <ul class="bullets">
+            <li>Process: timeliness, quality checks</li>
+            <li>Output: deliverable completeness</li>
+            <li>Outcome: usage & decision influence</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Evidence</h3>
+          <p>Data sources and means of verification.</p>
+          <ul class="bullets">
+            <li>Documents, datasets, tickets</li>
+            <li>Reviews, sign‑offs, audits</li>
+            <li>Surveys, analytics, logs</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- BOX MODEL DEMO (to visualize margin, padding, border) -->
+    <section id="box-model" class="container section">
+      <header class="section__header">
+        <h2>Box Model Demo</h2>
+        <p class="section__subhead">Visual differences in padding, border, and margin.</p>
+      </header>
+
+      <div class="boxrow">
+        <div class="box box--a">
+          <strong>.box--a</strong>
+          <p>padding: 1rem; border: 2px; margin: 0.5rem</p>
+        </div>
+        <div class="box box--b">
+          <strong>.box--b</strong>
+          <p>padding: 2rem; border: 4px; margin: 1rem</p>
+        </div>
+        <div class="box box--c">
+          <strong>.box--c</strong>
+          <p>padding: 0.5rem 1.5rem; border: 6px; margin: 1.5rem</p>
+        </div>
+      </div>
+
+      <p class="note">
+        Tip: <code>box-sizing: border-box</code> makes element sizing more predictable by including
+        padding and border in width/height calculations.
+      </p>
+    </section>
+
+    <!-- TYPOGRAPHY (basic elements & rhythm) -->
+    <section id="typography" class="container section">
+      <header class="section__header">
+        <h2>Typography & Elements</h2>
+        <p class="section__subhead">Headings, paragraphs, lists, and a blockquote.</p>
+      </header>
+
+      <div class="typography">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <p>
+          A paragraph with <a href="#overview">a link</a> and some <strong>bold</strong>,
+          <em>italic</em> text. Notice the vertical rhythm from consistent margins.
+        </p>
+        <blockquote>
+          “Clear agreements reduce risk and increase speed.”
+        </blockquote>
+        <ul>
+          <li>Consistent spacing tokens</li>
+          <li>Accessible color contrast</li>
+          <li>Responsive layouts with grid/flex</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <p>&copy; <span id="year">2025</span> WINWIN Agreement Demo. Pure CSS, no libraries.</p>
+      <nav aria-label="Footer">
+        <ul class="nav__list nav__list--small">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#canvas">Canvas</a></li>
+          <li><a href="#alignment">Alignment</a></li>
+          <li><a href="#cards">Scopes</a></li>
+          <li><a href="#box-model">Box Model</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
